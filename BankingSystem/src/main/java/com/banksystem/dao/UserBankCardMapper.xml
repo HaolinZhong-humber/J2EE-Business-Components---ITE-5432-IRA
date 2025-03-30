@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.banksystem.dao.UserBankCardDao">
+    <insert id="addBankCard" parameterType="Map">
+        insert into user_bankcard(userid, bankcardnumber)
+        values (#{userid}, #{bankcardnumber})
+    </insert>
+    <delete id="deleteBankCard" parameterType="Map">
+        delete
+        from user_bankcard
+        where userid = #{userid}
+          and bankcardnumber = #{bankcardnumber}
+    </delete>
+
+</mapper>

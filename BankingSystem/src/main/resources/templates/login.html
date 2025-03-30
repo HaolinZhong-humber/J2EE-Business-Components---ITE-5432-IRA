@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Welcome Dear Customer</title>
+    <link th:href="@{/css/loginStyle.css}" rel="stylesheet">
+    <script th:src="@{/js/jquery.min.js}"></script>
+</head>
+<body>
+
+<div class="container">
+    <p align="center" style="color: red" th:text="${message}" th:if="${not #strings.isEmpty(message)}"></p>
+    <div class="login-box">
+        <div class="title">Banking System Login</div>
+        <form th:action="@{/user/login}">
+            <div class="input">
+                <input id="login-user" placeholder="Input your username" name="username" type="text">
+            </div>
+            <div class="input">
+                <input id="login-password" placeholder="Input your password" name="password" type="password">
+            </div>
+            <div class="btn login-btn">
+                <button type="submit" style="background-color:transparent;border-style:none"><span>Login</span></button>
+            </div>
+        </form>
+        <div class="change-box login-change">
+            <div class="change-btn toSign">
+                <span>Sign Up</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="sign-box">
+        <div class="title">Sign Up</div>
+        <form th:action="@{/user/register}">
+            <div class="input">
+                <input id="sign-user" placeholder="Have A Good Name?" name="username" type="text">
+            </div>
+            <div class="input">
+                <input id="sign-password" placeholder="Keep Secret" name="password" type="password">
+            </div>
+            <div class="btn sign-btn">
+                <button type="submit" style="background-color:transparent;border-style:none"><span>Sign Up</span></button>
+            </div>
+        </form>
+        <div class="change-box sign-change">
+            <div class="change-btn toLogin">
+                <span>Login</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/login.js}"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Bank system web" name="description">
+    <meta content="Bank system" name="keywords">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta content="telephone=no" name="format-detection">
+    <title>Bank System</title>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+
+    <script>
+        $(function () {
+            $(".menu-item").click(function () {
+                $(".menu-item").removeClass("menu-item-active");
+                $(this).addClass("menu-item-active");
+                var itemObj = $(".menu-item").find("img");
+                itemObj.each(function () {
+                    var items = $(this).attr("src");
+                    items = items.replace("_grey.png}", ".png}");
+                    items = items.replace(".png}", "_grey.png}")
+                    $(this).attr("src", items);
+                });
+                var attrObj = $(this).find("img").attr("src");
+                attrObj = attrObj.replace("_grey.png}", ".png}");
+                $(this).find("img").attr("src", attrObj);
+            });
+            $("#topAD").click(function () {
+                $("#topA").toggleClass(" glyphicon-triangle-right");
+                $("#topA").toggleClass(" glyphicon-triangle-bottom");
+            });
+            $("#topBD").click(function () {
+                $("#topB").toggleClass(" glyphicon-triangle-right");
+                $("#topB").toggleClass(" glyphicon-triangle-bottom");
+            });
+            $("#topCD").click(function () {
+                $("#topC").toggleClass(" glyphicon-triangle-right");
+                $("#topC").toggleClass(" glyphicon-triangle-bottom");
+            });
+            $(".toggle-btn").click(function () {
+                $("#leftMenu").toggleClass("show");
+                $("#rightContent").toggleClass("pd0px");
+            })
+        })
+    </script>
+    <!--[if lt IE 9]>
+    <script th:src="@{/js/html5shiv.min.js}"></script>
+    <script th:src="@{/js/respond.min.js}"></script>
+    <![endif]-->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" type="text/css"/>
+    <link th:href="@{/css/common.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/slide.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/flat-ui.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/jquery.nouislider.css}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div id="wrap">
+    <!-- Left menu section -->
+    <div th:insert="~{share/share::sideBar}"></div>
+    <!-- Right content section -->
+    <div id="rightContent">
+        <a class="toggle-btn" id="nimei">
+            <i class="glyphicon glyphicon-align-justify"></i>
+        </a>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- Bank card management module -->
+            <div th:replace="~{rightContent/bankCardManage::bankCardManageList}"></div>
+            <!-- Password modification module -->
+            <div th:replace="~{rightContent/modifyPassword::modifyPasswordList}"></div>
+            <!-- Transaction history module -->
+            <div th:replace="~{rightContent/historyBill::historyBillList}"></div>
+            <!-- Deposit business module -->
+            <div th:replace="~{rightContent/deposit::depositList}"></div>
+            <!-- Withdrawal business module -->
+            <div th:replace="~{rightContent/withdraw::withdrawList}"></div>
+            <!-- Transfer business module -->
+            <div th:replace="~{rightContent/transfer::transferList}"></div>
+            <!-- Loan business module -->
+            <div th:replace="~{rightContent/loan::loanList}"></div>
+            <!-- Multiple personal information modification module -->
+            <div th:replace="~{rightContent/modifyMultiple::modifyMultipleList}"></div>
+            <!-- Personal information module -->
+            <div th:replace="~{rightContent/userInformation::userInformationList}"></div>
+            <!-- Loan details module -->
+            <div th:replace="~{rightContent/LoanDetial::LoanDetial}"></div>
+        </div>
+        <script th:src="@{/js/jquery.nouislider.js}"></script>
+    </div>
+</div>
+
+</body>
+<script th:src="@{/js/Request.js}"></script>
+<script th:src="@{/js/change.js}"></script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<div class="tab-pane" id="modifyMultiple" role="tabpanel" th:fragment="modifyMultipleList">
+
+  <div class="check-div form-inline">
+                    <span aria-controls="userInformation" data-toggle="tab" href="#userInformation" role="tab"
+                          style="cursor: pointer;"><span><b><</b></span>&nbsp;&nbsp;Modify Single Item</span>
+    <span class="btn btn-yellow btn-xs " data-toggle="modal"> Current User ID: [[${session.loginUserId}]] </span>
+  </div>
+  <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="col-xs-4 control-label">New Phone Number:</label>
+        <div class="col-xs-5">
+          <input class="form-control input-sm neat" id="newTelephoneNumberMultiple" placeholder=""
+                 style="margin-top: 7px;"
+                 type="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4 control-label">New Name:</label>
+        <div class="col-xs-5">
+          <input class="form-control input-sm neat" id="newNameMultiple" placeholder=""
+                 style="margin-top: 7px;"
+                 type="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-xs-4 control-label">New Address:</label>
+        <div class="col-xs-5">
+          <input class="form-control input-sm neat" id="newAddressMultiple" placeholder=""
+                 style="margin-top: 7px;"
+                 type="">
+        </div>
+      </div>
+      <div class="form-group text-right">
+        <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
+          <button class="btn btn-xs btn-white" type="reset">Cancel</button>
+          <button class="btn btn-xs btn-green" onclick="changeMultiple()">Confirm</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+</html>

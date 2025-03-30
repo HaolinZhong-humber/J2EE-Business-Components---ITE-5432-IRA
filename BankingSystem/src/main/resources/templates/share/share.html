@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Left menu column block -->
+<div class="leftMeun" id="leftMeun" th:fragment="sideBar">
+    <div id="logoDiv">
+        <p id="logoP"><span>Bank System</span></p>
+    </div>
+    <div id="personInfor">
+        <p id="userName">[[${session.loginUserName}]]</p>
+        <p><span>Account: [[${session.loginUserId}]]</span></p>
+        <p>
+            <a href="/logout">Log Out</a>
+        </p>
+    </div>
+    <div class="meun-title">Account Management</div>
+
+    <div aria-controls="bankCardManage" class="meun-item meun-item-active" data-toggle="tab" href="#bankCardManage"
+         role="tab"><img th:src="@{/images/icon_source.png}">Bank Card
+    </div>
+
+    <div class="meun-item" data-toggle="tab" role="tab" aria-controls="historyBill" href="#historyBill"><img
+            th:src="@{/images/icon_house_grey.png}">History Bills
+    </div>
+
+    <div aria-controls="userInformation" class="meun-item" data-toggle="tab" href="#userInformation" role="tab"><img
+            th:src="@{/images/icon_rule_grey.png}">Personal Information
+    </div>
+    <div aria-controls="modifyPassword" class="meun-item" data-toggle="tab" href="#modifyPassword" role="tab"><img
+            th:src="@{/images/icon_change_grey.png}">Change Password
+    </div>
+    <div class="meun-title">Banking Services</div>
+    <div aria-controls="deposit" class="meun-item" data-toggle="tab" href="#deposit" role="tab"><img
+            th:src="@{/images/icon_chara_grey.png}">Deposit Service
+    </div>
+    <div aria-controls="withdraw" class="meun-item" data-toggle="tab" href="#withdraw" role="tab"><img
+            th:src="@{/images/icon_user_grey.png}">Withdrawal Service
+    </div>
+    <div aria-controls="transfer" class="meun-item" data-toggle="tab" href="#transfer" role="tab"><img
+            th:src="@{/images/icon_card_grey.png}">Transfer Service
+    </div>
+    <div aria-controls="loan" class="meun-item" data-toggle="tab" href="#loan" role="tab"><img
+            th:src="@{/images/icon_char_grey.png}">Loan Service
+    </div>
+</div>
+</html>

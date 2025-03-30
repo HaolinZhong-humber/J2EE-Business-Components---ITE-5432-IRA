@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Loan details module -->
+<div class="tab-pane" id="LoanDetial" role="tabpanel" th:fragment="LoanDetial">
+    <div class="check-div form-inline">
+                    <span aria-controls="modifyMultiple" data-toggle="tab" href="#loan" role="tab"
+                          style="cursor: pointer;"><span><b><</b></span>&nbsp;&nbsp;Back to previous page</span>
+        <span class="btn btn-yellow btn-xs " data-toggle="modal"> Apply for a loan </span>
+    </div>
+
+    <div style="padding: 50px 0;margin-top: 50px;background-color: #fff; text-align: right;width: 420px;margin: 50px auto;">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-xs-4 control-label">Loan Amount:</label>
+                <div class="col-xs-5">
+                    <input class="form-control input-sm neat" id="loanNumber" style="margin-top: 7px;" type="Number">
+                </div>
+            </div>
+            <div class=" form-group">
+                <label class="col-xs-4 control-label">Receiving Account:</label>
+                <div class="col-xs-5">
+                    <input class="form-control input-sm neat" id="LoanBankcard" style="margin-top: 7px;">
+                </div>
+            </div>
+            <div class="form-group text-right">
+                <div class="col-xs-offset-4 col-xs-5" style="margin-left: 169px;">
+                    <button class="btn btn-xs btn-white" type="reset">Cancel</button>
+                    <button class="btn btn-xs btn-green" onclick="getLoanMoney()">Confirm</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</html>

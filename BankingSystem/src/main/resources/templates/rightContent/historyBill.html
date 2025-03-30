@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- History bill module -->
+<div class="tab-pane" id="historyBill" role="tabpanel" th:fragment="historyBillList">
+
+    <div class="check-div form-inline">
+        <div class="col-xs-5">
+            <input class=" form-control input-sm" placeholder="Enter text to search" style="height: 40px!important;"
+                   type="text">
+            <button class="btn btn-white btn-xs ">Search</button>
+        </div>
+
+    </div>
+    <div class="data-div">
+        <div class="row tableHeader">
+            <div class="col-xs-2">
+                Bill Type
+            </div>
+            <div class="col-xs-1">
+                Payer Name
+            </div>
+            <div class="col-xs-2">
+                Payer Card Number
+            </div>
+            <div class="col-xs-1">
+                Payee Name
+            </div>
+            <div class="col-xs-2">
+                Payee Card Number
+            </div>
+            <div class="col-xs-2">
+                Amount
+            </div>
+            <div class="col-xs-1">
+                Operations
+            </div>
+        </div>
+        <div class="tablebody" id="historyBillList">
+
+        </div>
+    </div>
+    <!-- Pagination block -->
+    <footer class="footer">
+        <ul class="pagination">
+            <li>
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+                Page
+            </li>
+            <li class="gray">
+                Total 20 pages
+            </li>
+            <li>
+                <i><b><</b></i>
+            </li>
+            <li>
+                <i><b>></b></i>
+            </li>
+        </ul>
+    </footer>
+
+    <!-- Pop-up warning window for deleting history bill -->
+    <div aria-labelledby="gridSystemModalLabel" class="modal fade" id="deleteHistory" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Prompt</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        Are you sure you want to delete this record? It cannot be recovered after deletion!
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-xs btn-white" data-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-xs btn-danger" onclick="deleteHistoryBill()" type="button">Confirm</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+</html>

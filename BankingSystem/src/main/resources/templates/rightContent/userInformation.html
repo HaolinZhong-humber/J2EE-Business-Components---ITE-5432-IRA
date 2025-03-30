@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<div class="tab-pane" id="userInformation" role="tabpanel" th:fragment="userInformationList">
+    <div class="check-div form-inline">
+                    <span aria-controls="modifyMultiple" data-toggle="tab" href="#modifyMultiple" role="tab"
+                          style="cursor: pointer;"><span><b><</b></span>&nbsp;&nbsp;Modify Multiple Items</span>
+        <span class="btn btn-yellow btn-xs " data-toggle="modal"> Current User ID: [[${session.loginUserId}]] </span>
+    </div>
+    <div class="data-div">
+        <div class="row tableHeader">
+            <div align="center" class="col-xs-5">
+                Information
+            </div>
+            <div class="col-xs-2">
+                Value
+            </div>
+            <div align="right" class="col-xs-1">
+                Operations
+            </div>
+        </div>
+        <div class="tablebody">
+            <div class="row">
+                <div align="center" class="col-xs-5 ">
+                    Phone Number
+                </div>
+                <div class="col-xs-2">
+                    [[${session.loginUserPhoneNumber}]]
+                </div>
+                <div align="right" class="col-xs-1">
+                    <button class="btn btn-success btn-xs" data-target="#modifySingleInformation"
+                            data-toggle="modal" onclick="changePhoneNumber()">
+                        Modify
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div align="center" class="col-xs-5 ">
+                    Name
+                </div>
+                <div class="col-xs-2"> [[${session.loginUserName}]]
+                </div>
+                <div align="right" class="col-xs-1">
+                    <button class="btn btn-success btn-xs" data-target="#modifySingleInformation"
+                            data-toggle="modal" onclick="changeName()">
+                        Modify
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div align="center" class="col-xs-5 ">
+                    Address
+                </div>
+                <div class="col-xs-2"> [[${session.loginUserAddress}]]
+                </div>
+                <div align="right" class="col-xs-1">
+                    <button class="btn btn-success btn-xs" data-target="#modifySingleInformation"
+                            data-toggle="modal" onclick="changeAddress()">
+                        Modify
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Pop-up window for modifying single item information -->
+    <div aria-labelledby="gridSystemModalLabel" class="modal fade" id="modifySingleInformation"
+         role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button aria-label="Close" class="close" data-dismiss="modal"
+                            type="button"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modify Personal Information</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form class="form-horizontal">
+                            <div class="form-group ">
+                                <label class="col-xs-3 control-label">New Information:</label>
+                                <div class="col-xs-8 ">
+                                    <input class="form-control input-sm neat" id="changeSingleValue">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-xs btn-white" data-dismiss="modal" type="button">Cancel</button>
+                    <button class="btn btn-xs btn-green" onclick="changeSingle()">Confirm</button>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- Modify multiple personal information module -->
+</div>
+</html>

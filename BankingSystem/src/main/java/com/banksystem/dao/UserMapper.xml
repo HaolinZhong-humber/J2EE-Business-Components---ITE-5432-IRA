@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.banksystem.dao.UserDao">
+    <select id="getUserList" resultType="com.banksystem.pojo.User">
+        select *
+        from user
+    </select>
+    <select id="getUserById" resultType="com.banksystem.pojo.User" parameterType="int">
+        select id, phone_number as phoneNumber, name, password, address
+        from user
+        where ID = #{id}
+    </select>
+    <select id="getUserNameById" parameterType="int" resultType="String">
+        select name
+        from user
+        where ID = #{id}
+    </select>
+    <update id="changeInformation" parameterType="com.banksystem.pojo.User">
+        update user
+        set address=#{address},
+            name=#{name},
+            phone_number=#{phoneNumber}
+        where ID = #{ID}
+    </update>
+
+    <update id="changePassword" parameterType="Map">
+        update user
+        set PASSWORD=#{password}
+        where ID = #{id}
+    </update>
+    <update id="changeName" parameterType="com.banksystem.pojo.User">
+        update user
+        set name=#{name}
+        where id = #{id}
+    </update>
+    <update id="changePhoneNumber" parameterType="com.banksystem.pojo.User">
+        update user
+        set phone_number=#{phoneNumber}
+        where id = #{id}
+    </update>
+    <update id="changeAddress" parameterType="com.banksystem.pojo.User">
+        update user
+        set address=#{address}
+        where id = #{id}
+    </update>
+    <insert id="addUser" parameterType="com.banksystem.pojo.User">
+        insert into user(id, password)
+        values (#{ID}, #{password})
+    </insert>
+    <delete id="deleteUser" parameterType="int">
+        delete from user where id=#{id}
+    </delete>
+</mapper>

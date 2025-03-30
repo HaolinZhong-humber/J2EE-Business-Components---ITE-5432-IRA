@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.banksystem.dao.HistoryBillDao">
+    <select id="getHistoryBillList" resultType="com.banksystem.pojo.HistoryBill">
+        select sender,
+               payee,
+               value,
+               type,
+               (select name from user where id = bill.sender) as SenderName,
+               (select name from user where id = bill.payee)  as PayeeName
+        from bill
+    </select>
+    <select id="getHistoryBillListById" parameterType="int" resultType="com.banksystem.pojo.HistoryBill">
+        select sender,
+               payee,
+               value,
+               type,
+               (select name from user where id = bill.sender) as SenderName,
+               (select name from user where id = bill.payee)  as PayeeName
+        from bill
+        where (bill.sender = #{id}
+            or bill.payee = #{id})
+    </select>
+    <insert id="insertHistoryBill" parameterType="com.banksystem.pojo.Bill">
+        insert into bill
+        values (#{sender}, #{payee}, #{value}, #{type})
+    </insert>
+    <insert id="insertHistoryWithdrawBill" parameterType="com.banksystem.pojo.Bill">
+        insert into bill(sender, value, type)
+        values (#{sender}, #{value}, #{type})
+    </insert>
+    <insert id="insertHistoryDepositBill" parameterType="com.banksystem.pojo.Bill">
+        insert into bill(payee, value, type)
+        values (#{payee}, #{value}, #{type})
+    </insert>
+    <delete id="deleteHistoryBill" parameterType="com.banksystem.pojo.Bill">
+        delete
+        from bill
+        where (sender = #{sender}
+            or payee = #{sender})
+          and value = #{value}
+          and type = #{type}
+    </delete>
+
+</mapper>
